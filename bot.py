@@ -25,7 +25,14 @@ class TwitchQuizBot(irc.bot.SingleServerIRCBot):
         print('Connecting to ') + server + ' on port ' + str(port) + '...'
         irc.bot.SingleServerIRCBot.__init__(self, [(server, port, 'oauth:'+token)], username, username)
 
+    def on_welcome(self, c, e):
+        print("Joining " + self.channel)
 
+        #gotta request specific capabilities
+        c.cap('REQ', ':twitch.tv/membership')
+        c.cap('REQ', ':twitch.tv/tags')
+        c.cap('REQ', ':twitch.tv/commands')
+        c.join(self.channel)
 
 
 
