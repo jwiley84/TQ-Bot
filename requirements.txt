@@ -2,3 +2,4 @@ pandas
 twitchio
 openpyxl
 dotenv
+xlrd

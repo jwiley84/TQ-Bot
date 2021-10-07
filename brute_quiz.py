@@ -1,9 +1,11 @@
 import random
-from Question_reader import Question_reader
 
 class Quiz_Bot_Brute:
     
-    def continue_prompt():
+    def __init__(self) -> None:
+        pass
+
+    def continue_prompt(self):
         print("Would you like to continue, y or n?")
         answer = input().lower()
         if answer == 'y'  or answer == 'yes':
@@ -27,7 +29,7 @@ class Quiz_Bot_Brute:
             total -= 1
 
         for index in range(len(question_set)):
-            print(index)
+            #print(index)
             print(questions[question_set[index]][0])
             
             answer = input().lower()
@@ -42,15 +44,5 @@ class Quiz_Bot_Brute:
                     break
             else:
                 print("that's all folks!")
-            
 
 
-
-move_to_file = [("What is two plus two", "Four"), ("Why is this show hokey?", "Overacting"), ("What is the answer to life, the universe, everything?", "Four-Two"), ("QFour", "Four"), ("QFive", "Five"), ("QSix", "Six")]
-
-quizexcel = "QuizBot.xlsx"
-quiz_file = Question_reader(quizexcel)
-#test = Question_reader.read_questions_from_file(self, quizexcel)
-
-#read_questions(move_to_file, 4)
-quiz_file.read_questions_from_file()

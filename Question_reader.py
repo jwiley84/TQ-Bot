@@ -7,8 +7,9 @@ class Question_reader():
 
     def read_questions_from_file(self):
         file = self.file
-        data = pd.read_excel(file)
-        print(data)
+        data = pd.read_excel(file, usecols="A,B")
+        qa_pairs = list(zip(data['Questions'], data['Answers']))
+        return qa_pairs
 
 
 # quizfile = "QuizBot.xlsx"
